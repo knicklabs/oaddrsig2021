@@ -11,7 +11,7 @@ export const Card = ({
 }) => {
   const tagMarkup = tag
     ? (
-        <p className="text-sm font-medium text-blue-600">
+        <p className="text-sm font-medium text-red-600">
           {tag}
         </p>
       )
@@ -81,7 +81,7 @@ export const Card = ({
           </div>
           <div className="flex-shrink-0 ml-3">
             <a href={href} tabIndex="-1" title={`${linkType === 'file' ? 'Download' : 'Visit'}: ${title}`}>
-              <span className="rounded-lg inline-flex p-3 bg-blue-50 hover:bg-blue-100 text-blue-700 hover:text-blue-800 ring-4 ring-white">
+              <span className="rounded-lg inline-flex p-3 bg-red-50 hover:bg-red-100 text-red-700 hover:text-red-800 ring-4 ring-white">
                 {icon}
               </span>
             </a>
