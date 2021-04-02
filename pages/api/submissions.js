@@ -1,12 +1,19 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import XLSX from 'xlsx'
+import { xlsxToJson } from '../../utils'
 
 export default (req, res) => {
-  const workbook = XLSX.readFile('data/submissions.xlsx')
-  const sheets = workbook.SheetNames
-  const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheets[0]])
+  if (process.env.production) {
+    return res.status(403).json({ message: 'Forbidden' })
+  }
 
-
-  res.status(200).json(data)
+  try {
+    const data = xlsxToJson({
+      filename: 'data/submissions.xlsx',
+      worksheetName: 'Poster Presentations'
+    })
+    res.status(200).json(data)
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong.' })
+  }
 }

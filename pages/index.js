@@ -1,9 +1,26 @@
 import Head from 'next/head'
+import { Header } from '../components'
 
-export default function Home() {
+import { xlsxToJson } from '../utils'
+
+export default function Home({ submissions }) {
   return (
       <div>
-        <p>Hello World</p>
+        <Header />
+        { submissions.map(({ title }) => (
+          <div>{title}</div>
+        ))}
       </div>
   )
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: {
+      submissions: xlsxToJson({
+        filename: 'data/submissions.xlsx',
+        worksheetName: 'Poster Presentations',
+      })
+    }
+  }
 }
