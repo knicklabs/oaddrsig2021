@@ -1,12 +1,15 @@
 import Head from 'next/head'
-import { Card, Grid, Header, Section } from '../components'
+import { Card, Footer, Grid, Header, Section } from '../components'
 
 import { xlsxToJson } from '../utils'
 
 export default function Home({ sections, submissions, universities }) {
-
   return (
       <>
+        <Head>
+          <title>2021 RSIG Research Day | OADD</title>
+          <meta name="description" content="Poster presentations from the 2021 RSIG Research Day" />
+        </Head>
         <Header
           title={sections.home.title}
           subtitle={sections.home.subtitle}
@@ -47,6 +50,7 @@ export default function Home({ sections, submissions, universities }) {
             </Grid>
           </Section>
         </main>
+        <Footer />
       </>
   )
 }

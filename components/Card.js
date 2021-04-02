@@ -19,17 +19,19 @@ export const Card = ({
 
   const titleMarkup = title
     ? (
-      <h3 className="text-md font-semibold text-gray-900">
-        {title}
-      </h3>
+      <a className="hover:underline" href={href}>
+        <h4 className="text-md font-semibold text-gray-900">
+          {title}
+        </h4>
+      </a>
     )
     : null
 
   const subtitleMarkup = subtitle
     ? (
-        <h4 className="mt-3 text-base text-gray-500">
+        <h5 className="mt-3 text-base text-gray-500">
           {subtitle}
-        </h4>
+        </h5>
       )
     : null
 
@@ -78,7 +80,7 @@ export const Card = ({
             {authorEmailMarkup}
           </div>
           <div className="flex-shrink-0 ml-3">
-            <a href={href} title={`${linkType === 'file' ? 'Download' : 'Visit'}: ${title}`}>
+            <a href={href} tabIndex="-1" title={`${linkType === 'file' ? 'Download' : 'Visit'}: ${title}`}>
               <span className="rounded-lg inline-flex p-3 bg-blue-50 hover:bg-blue-100 text-blue-700 hover:text-blue-800 ring-4 ring-white">
                 {icon}
               </span>
@@ -89,7 +91,7 @@ export const Card = ({
     : null
 
   return (
-    <article className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+    <article className="flex flex-col rounded-lg shadow-lg overflow-hidden mb-5">
       <div className="flex-shrink-0">
         <img className="h-48 w-full object-cover"
              src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=i0EmzW8Tu6&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"

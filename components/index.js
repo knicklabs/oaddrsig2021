@@ -1,4 +1,5 @@
 export * from './Card'
+export * from './Footer'
 export * from './Grid'
 export * from './Header'
 export * from './Section'
