@@ -6,46 +6,48 @@ import { xlsxToJson } from '../utils'
 export default function Home({ sections, submissions, universities }) {
 
   return (
-      <div>
+      <>
         <Header
           title={sections.home.title}
           subtitle={sections.home.subtitle}
         />
-        <Section
-          title={sections.poster.title}
-          subtitle={sections.poster.subtitle}
-        >
-          <Grid>
-            { submissions.map(({ coAuthors, contactAuthor, email, title }, index) => (
-              <Card
-                title={title}
-                authorEmail={email || 'Email n/a'}
-                authorName={`${contactAuthor}${coAuthors ? ', et al' : ''}`}
-                linkType="file"
-                key={index}
-                tag="Poster"
-              />
-            ))}
-          </Grid>
-        </Section>
-        <Section
-          title={sections.university.title}
-          subtitle={sections.university.subtitle}
-        >
-          <Grid>
-            { universities.map(({ contactEmail, contactPerson, title }, index) => (
-              <Card
-                title={title}
-                authorEmail={contactEmail || 'Email n/a'}
-                authorName={contactPerson || 'Contact n/a'}
-                linkType="link"
-                key={index}
-                tag="University"
-              />
-            ))}
-          </Grid>
-        </Section>
-      </div>
+        <main>
+          <Section
+            title={sections.poster.title}
+            subtitle={sections.poster.subtitle}
+          >
+            <Grid>
+              { submissions.map(({ coAuthors, contactAuthor, email, title }, index) => (
+                <Card
+                  title={title}
+                  authorEmail={email || 'Email n/a'}
+                  authorName={`${contactAuthor}${coAuthors ? ', et al' : ''}`}
+                  linkType="file"
+                  key={index}
+                  tag="Poster"
+                />
+              ))}
+            </Grid>
+          </Section>
+          <Section
+            title={sections.university.title}
+            subtitle={sections.university.subtitle}
+          >
+            <Grid>
+              { universities.map(({ contactEmail, contactPerson, title }, index) => (
+                <Card
+                  title={title}
+                  authorEmail={contactEmail || 'Email n/a'}
+                  authorName={contactPerson || 'Contact n/a'}
+                  linkType="link"
+                  key={index}
+                  tag="University"
+                />
+              ))}
+            </Grid>
+          </Section>
+        </main>
+      </>
   )
 }
 
