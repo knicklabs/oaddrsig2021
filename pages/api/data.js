@@ -8,10 +8,16 @@ export default (req, res) => {
   }
 
   try {
-    const data = xlsxToJson({
-      filename: 'data/submissions.xlsx',
-      worksheetName: 'Poster Presentations'
-    })
+    const data = {
+      sections: xlsxToJson({
+        filename: 'data/data.xlsx',
+        worksheetName: 'Sections',
+      }),
+      submissions: xlsxToJson({
+        filename: 'data/data.xlsx',
+        worksheetName: 'Poster Presentations',
+      }),
+    }
     res.status(200).json(data)
   } catch (error) {
     res.status(500).json({ message: 'Something went wrong.' })
