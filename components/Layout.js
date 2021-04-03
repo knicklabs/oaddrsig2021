@@ -1,13 +1,10 @@
 import { Header, Footer } from '.'
 
-export function Layout({ children, home }) {
+export function Layout({ children, isHome = false }) {
   return (
     <>
-      <Header
-        title={home.title}
-        subtitle={home.subtitle}
-      />
-      <main>
+      <Header isExpanded={isHome} />
+      <main className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {children}
       </main>
       <Footer />

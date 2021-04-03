@@ -3,25 +3,25 @@ import { Card, Grid, Layout, Section } from '../components'
 
 import { xlsxToJson } from '../utils'
 
-export default function Home({ sections, submissions, universities }) {
+export default function Home({ submissions, universities }) {
   return (
-      <Layout home={sections.home}>
+      <Layout isHome>
         <Head>
           <title>2021 RSIG Research Day | OADD</title>
           <meta name="description" content="Poster presentations from the 2021 RSIG Research Day" />
         </Head>
         <Section
-          title={sections.poster.title}
-          subtitle={sections.poster.subtitle}
+          title="Posters"
+          subtitle="View the poster submissions from 2021"
         >
           <Grid>
-            { submissions.map(({ coAuthors, contactAuthor, email, id, title }) => (
+            { submissions.map(({ coAuthors, contactAuthor, email, file, id, title }) => (
               <Card
                 title={title}
                 authorEmail={email || 'Email n/a'}
                 authorName={`${contactAuthor}${coAuthors ? ', et al' : ''}`}
+                file={file}
                 href={`/submissions/${id}`}
-                linkType="file"
                 key={id}
                 tag="Poster"
               />
@@ -29,16 +29,16 @@ export default function Home({ sections, submissions, universities }) {
           </Grid>
         </Section>
         <Section
-          title={sections.university.title}
-          subtitle={sections.university.subtitle}
+          title="Universities"
+          subtitle="Check out these universities with disability programs"
         >
           <Grid>
-            { universities.map(({ contactEmail, contactPerson, id, title }) => (
+            { universities.map(({ contactEmail, contactPerson, id, link, title }) => (
               <Card
                 title={title}
                 authorEmail={contactEmail || 'Email n/a'}
                 authorName={contactPerson || 'Contact n/a'}
-                linkType="link"
+                href={link}
                 key={id}
                 tag="University"
               />
@@ -50,38 +50,16 @@ export default function Home({ sections, submissions, universities }) {
 }
 
 export async function getStaticProps(context) {
-  const sections = xlsxToJson({
-    filename: 'data/data.xlsx',
-    worksheetName: 'Sections',
-  })
-
-  const submissions = xlsxToJson({
-    filename: 'data/data.xlsx',
-    worksheetName: 'Poster Presentations',
-  })
-
-  const universities = xlsxToJson({
-    filename: 'data/data.xlsx',
-    worksheetName: 'Universities',
-  })
-
   return {
     props: {
-      sections: {
-        home: getSection(sections, 'home'),
-        poster: getSection(sections, 'posters'),
-        university: getSection(sections, 'universities'),
-      },
-      submissions,
-      universities,
+      submissions: xlsxToJson({
+        filename: 'data/data.xlsx',
+        worksheetName: 'Poster Presentations',
+      }),
+      universities: xlsxToJson({
+        filename: 'data/data.xlsx',
+        worksheetName: 'Universities',
+      }),
     }
-  }
-}
-
-function getSection(sections, key) {
-  const section = sections.find(({ section }) => String(section).toLowerCase() === key) || {}
-  return {
-    subtitle: section.subtitle || '',
-    title: section.title || '',
   }
 }
