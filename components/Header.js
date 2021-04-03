@@ -14,7 +14,7 @@ export const Header = ({ isExpanded= false }) => {
         <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
           <div className="rounded-md shadow">
             <a href="/downloads/RSIG_Conference_Program_2020.pdf"
-               className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10"
+               className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-800 md:py-4 md:text-lg md:px-10"
                download
             >
               Download program
@@ -33,7 +33,7 @@ export const Header = ({ isExpanded= false }) => {
                alt="OADD RSIG logo"
           />
           <h1 className="mt-10 text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block xl:inline text-green-600">2021</span>
+            <span className="block xl:inline text-green-700">2021</span>
             <span className="block xl:inline xl:ml-2.5">RSIG Research Day</span>
           </h1>
           {subtitleMarkup}

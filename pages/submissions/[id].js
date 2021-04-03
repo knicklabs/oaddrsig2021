@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Layout } from '../../components'
 import {xlsxToJson} from "../../utils"
+import Head from "next/head";
 
 const PdfViewer = dynamic(() => import('../../components/PdfViewer'), {ssr: false })
 
@@ -12,15 +13,19 @@ export default function Submission({ submission }) {
 
   return (
     <Layout>
+      <Head>
+        <title>Poster Submission | 2021 RSIG Research Day | OADD</title>
+        <meta name="description" content={`Poster submission: ${submission.title}`} />
+      </Head>
       <article className="bg-white p-5 shadow-md rounded-md flex flex-col flex-col-reverse">
         <header className="bg-white pt-5">
           <div className="flex justify-between items-start flex-wrap sm:flex-nowrap">
             <div>
               <div className="flex items-center">
                 <div>
-                  <h3 className="text-lg leading-6 font-medium text-gray-900">
+                  <h2 className="text-lg leading-6 font-medium text-gray-900">
                     {submission.title}
-                  </h3>
+                  </h2>
                   <p className="text-sm text-gray-500">
                     {`${submission.contactAuthor}${submission.coAuthors ? ', et al' : ''}`}
                   </p>
