@@ -4,7 +4,7 @@ export const Footer = () => (
 
     <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
       <div className="mt-12 border-t border-gray-200 pt-8">
-        <p className="text-base text-gray-500 xl:text-center">
+        <p className="text-center text-gray-500">
           &copy; 2021 OADD RSIG. All rights reserved.
         </p>
       </div>

@@ -1,57 +1,51 @@
 import Head from 'next/head'
-import { Card, Footer, Grid, Header, Section } from '../components'
+import { Card, Grid, Layout, Section } from '../components'
 
 import { xlsxToJson } from '../utils'
 
 export default function Home({ sections, submissions, universities }) {
   return (
-      <>
+      <Layout home={sections.home}>
         <Head>
           <title>2021 RSIG Research Day | OADD</title>
           <meta name="description" content="Poster presentations from the 2021 RSIG Research Day" />
         </Head>
-        <Header
-          title={sections.home.title}
-          subtitle={sections.home.subtitle}
-        />
-        <main>
-          <Section
-            title={sections.poster.title}
-            subtitle={sections.poster.subtitle}
-          >
-            <Grid>
-              { submissions.map(({ coAuthors, contactAuthor, email, title }, index) => (
-                <Card
-                  title={title}
-                  authorEmail={email || 'Email n/a'}
-                  authorName={`${contactAuthor}${coAuthors ? ', et al' : ''}`}
-                  linkType="file"
-                  key={index}
-                  tag="Poster"
-                />
-              ))}
-            </Grid>
-          </Section>
-          <Section
-            title={sections.university.title}
-            subtitle={sections.university.subtitle}
-          >
-            <Grid>
-              { universities.map(({ contactEmail, contactPerson, title }, index) => (
-                <Card
-                  title={title}
-                  authorEmail={contactEmail || 'Email n/a'}
-                  authorName={contactPerson || 'Contact n/a'}
-                  linkType="link"
-                  key={index}
-                  tag="University"
-                />
-              ))}
-            </Grid>
-          </Section>
-        </main>
-        <Footer />
-      </>
+        <Section
+          title={sections.poster.title}
+          subtitle={sections.poster.subtitle}
+        >
+          <Grid>
+            { submissions.map(({ coAuthors, contactAuthor, email, id, title }) => (
+              <Card
+                title={title}
+                authorEmail={email || 'Email n/a'}
+                authorName={`${contactAuthor}${coAuthors ? ', et al' : ''}`}
+                href={`/submissions/${id}`}
+                linkType="file"
+                key={id}
+                tag="Poster"
+              />
+            ))}
+          </Grid>
+        </Section>
+        <Section
+          title={sections.university.title}
+          subtitle={sections.university.subtitle}
+        >
+          <Grid>
+            { universities.map(({ contactEmail, contactPerson, id, title }) => (
+              <Card
+                title={title}
+                authorEmail={contactEmail || 'Email n/a'}
+                authorName={contactPerson || 'Contact n/a'}
+                linkType="link"
+                key={id}
+                tag="University"
+              />
+            ))}
+          </Grid>
+        </Section>
+      </Layout>
   )
 }
 

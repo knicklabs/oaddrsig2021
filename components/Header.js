@@ -33,9 +33,11 @@ export const Header = ({ subtitle = '', title = '' }) => {
           {subtitleMarkup}
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
             <div className="rounded-md shadow">
-              <a href="#"
-                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
-                Download agenda
+              <a href="/downloads/RSIG_Conference_Program_2020.pdf"
+                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10"
+                 download
+              >
+                Download program
               </a>
             </div>
           </div>
