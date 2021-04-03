@@ -7,7 +7,6 @@ export const Card = ({
   href = '#',
   imageTitle,
   imageUrl,
-  linkType,
   subtitle,
   tag,
   title

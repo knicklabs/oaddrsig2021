@@ -20,7 +20,7 @@ export default function Home({ submissions, universities }) {
                 title={title}
                 authorEmail={email || 'Email n/a'}
                 authorName={`${contactAuthor}${coAuthors ? ', et al' : ''}`}
-                file={file}
+                file={`/downloads/${file}`}
                 href={`/submissions/${id}`}
                 key={id}
                 tag="Poster"
