@@ -33,11 +33,12 @@ export default function Home({ submissions, universities }) {
           subtitle="Check out these universities with disability programs"
         >
           <Grid>
-            { universities.map(({ contactEmail, contactPerson, id, link, title }) => (
+            { universities.map(({ contactEmail, contactPerson, id, file, link, title }) => (
               <Card
                 title={title}
                 authorEmail={contactEmail || 'Email n/a'}
                 authorName={contactPerson || 'Contact n/a'}
+                file={`/downloads/${file}`}
                 href={link}
                 key={id}
                 tag="University"
