@@ -70,7 +70,7 @@ export const Card = ({
   const authorEmailMarkup = authorEmail
     ? (
         <div className="flex space-x-1 text-sm text-gray-500">
-          {authorEmail}
+          {authorEmail.replace()}
         </div>
       )
     : null
