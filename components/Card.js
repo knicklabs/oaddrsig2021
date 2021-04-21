@@ -102,7 +102,7 @@ export const Card = ({
     : null
 
   return (
-    <article className="border-t-8 border-green-400 flex flex-col rounded-lg shadow-lg overflow-hidden mb-5">
+    <article className="border-t-8 border-green-700 flex flex-col rounded-lg shadow-lg overflow-hidden mb-5">
       {imageMarkup}
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
