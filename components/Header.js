@@ -3,7 +3,7 @@ export const Header = ({ isExpanded= false }) => {
     ? (
         <div className="mt-5">
           <h2 className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.
+            Welcome to the 2021 Research Day! Thank you for coming!  Here you will find the poster submissions for the conference.
           </h2>
         </div>
       )
@@ -11,16 +11,31 @@ export const Header = ({ isExpanded= false }) => {
 
   const buttonMarkup = isExpanded
     ? (
-        <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-          <div className="rounded-md shadow">
-            <a href="/downloads/RSIG_Conference_Program_2020.pdf"
-               className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-800 md:py-4 md:text-lg md:px-10"
-               download
-            >
-              Download program
-            </a>
+        <>
+          <div className="mt-5 max-w-7xl mx-auto sm:flex sm:justify-center md:mt-8">
+            <div className="rounded-md shadow">
+              <a href="/downloads/RSIG_Conference_Program_2021.pdf"
+                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-800 md:py-4 md:text-lg md:px-10"
+                 download
+              >
+                Download program
+              </a>
+            </div>
+            <div className="rounded-md shadow mt-2 sm:mt-0 sm:ml-2">
+              <a href="https://forms.gle/bXQAs1VSEaZLJyu87"
+                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-800 md:py-4 md:text-lg md:px-10"
+                 target="_blank"
+              >
+                Leave feedback
+              </a>
+            </div>
           </div>
-        </div>
+          <div class="mt-5 max-w-md mx-auto text-base text-gray-500 sm:text-md md:mt-8 md:text-lg">
+            <p className="text-gray-500 text-md block">
+              Remember to <a class="text-green-600 hover:text-green-700 font-bold" href="https://www.surveymonkey.com/r/QDBF3J3" target="_blank">vote for the People’s Choice Award!</a> and <a class="text-green-600 hover:text-green-700 font-bold" href="https://forms.gle/bXQAs1VSEaZLJyu87" target="_blank">provide us feedback</a> at the end of the day.
+            </p>
+          </div>
+        </>
       )
     : null
 

@@ -3,6 +3,7 @@ import Link from 'next/link'
 export const Card = ({
   authorName,
   authorEmail,
+  external = false,
   file = '',
   href = '#',
   imageTitle,
@@ -32,7 +33,7 @@ export const Card = ({
   const titleMarkup = title
     ? (
       <Link href={href}>
-        <a className="hover:underline">
+        <a className="hover:underline" target={external ? "_blank" : ""}>
           <h4 className="text-md font-semibold text-gray-900">
             {title}
           </h4>

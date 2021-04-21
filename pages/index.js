@@ -9,6 +9,7 @@ export default function Home({ submissions, universities }) {
         <Head>
           <title>2021 RSIG Research Day | OADD</title>
           <meta name="description" content="Poster presentations from the 2021 RSIG Research Day" />
+          <meta name="keywords" content="OADD, RSIG, Research Day, 2021" />
         </Head>
         <Section
           title="Posters"
@@ -27,10 +28,20 @@ export default function Home({ submissions, universities }) {
               />
             ))}
           </Grid>
+          <div className="mt-5 max-w-7xl mx-auto sm:flex sm:justify-center md:mt-8">
+            <div className="rounded-md shadow mt-2 sm:mt-0 sm:ml-2">
+              <a href="https://www.surveymonkey.com/r/QDBF3J3"
+                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-800 md:py-4 md:text-lg md:px-10"
+                 target="_blank"
+              >
+                Vote for the People’s Choice Award!
+              </a>
+            </div>
+          </div>
         </Section>
         <Section
           title="Universities"
-          subtitle="Check out these universities with disability programs"
+          subtitle="Check out these programs for disability studies"
         >
           <Grid>
             { universities.map(({ contactEmail, contactPerson, id, file, link, title }) => (
@@ -38,6 +49,7 @@ export default function Home({ submissions, universities }) {
                 title={title}
                 authorEmail={contactEmail || 'Email n/a'}
                 authorName={contactPerson || 'Contact n/a'}
+                external
                 file={`/downloads/${file}`}
                 href={link}
                 key={id}
