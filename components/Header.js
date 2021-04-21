@@ -32,7 +32,7 @@ export const Header = ({ isExpanded= false }) => {
           </div>
           <div class="mt-5 max-w-md mx-auto text-base text-gray-500 sm:text-md md:mt-8 md:text-lg">
             <p className="text-gray-500 text-md block">
-              Remember to <a class="transition duration-500 ease-in-out text-green-600 hover:text-green-700 font-bold" href="https://www.surveymonkey.com/r/QDBF3J3" target="_blank">vote for the People’s Choice Award!</a> and <a class="transition duration-500 ease-in-out text-green-600 hover:text-green-700 font-bold" href="https://forms.gle/bXQAs1VSEaZLJyu87" target="_blank">provide us feedback</a> at the end of the day.
+              Remember to <a class="transition duration-500 ease-in-out text-green-600 hover:text-green-700 font-bold" href="https://www.surveymonkey.com/r/QDBF3J3" target="_blank">vote for the People’s Choice Award</a> and <a class="transition duration-500 ease-in-out text-green-600 hover:text-green-700 font-bold" href="https://forms.gle/bXQAs1VSEaZLJyu87" target="_blank">provide us feedback</a> at the end of the day.
             </p>
           </div>
         </>
